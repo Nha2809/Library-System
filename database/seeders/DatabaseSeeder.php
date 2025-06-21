@@ -11,15 +11,14 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-   public function run(): void
+  public function run(): void
 {
-    User::updateOrCreate(
-        ['email' => 'test@example.com'],
-        [
-            'name' => 'Test User',
-            'password' => bcrypt('password123'),
-        
-        ]
-    );
+    $this->call([
+        UserSeeder::class,
+        BookSeeder::class,
+        CategorySeeder::class,
+        BorrowSeeder::class,
+    ]);
 }
+
 }
